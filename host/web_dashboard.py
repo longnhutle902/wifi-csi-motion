@@ -1587,7 +1587,7 @@ class WebState:
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--port", default="COM4")
-    ap.add_argument("--baud", type=int, default=115200)
+    ap.add_argument("--baud", type=int, default=921600)
     ap.add_argument("--replay", default=None)
     ap.add_argument("--speed", type=float, default=1.0)
     ap.add_argument("--calib", default=os.path.abspath(DEFAULT_CALIB))

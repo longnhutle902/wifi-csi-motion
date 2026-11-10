@@ -22,7 +22,7 @@ from .detectors import FallDetector, MotionDetector
 class SerialSource(threading.Thread):
     """Reads the CSI stream from the RX board. Puts (host_t, raw_line, pkt)."""
 
-    def __init__(self, port: str, baud: int = 115200):
+    def __init__(self, port: str, baud: int = 921600):
         super().__init__(daemon=True)
         self.port = port
         self.baud = baud

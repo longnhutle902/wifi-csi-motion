@@ -114,6 +114,30 @@ class DashboardTests(unittest.TestCase):
 
 
 class RecordingTests(unittest.TestCase):
+    def test_record_cli_baud_matches_firmware_and_allows_override(self):
+        for options, expected in (([], 921600), (["--baud", "230400"], 230400)):
+            with self.subTest(options=options):
+                received = []
+                with patch.object(sys, "argv", ["record.py", *options]), \
+                     patch.object(record, "interactive_menu", side_effect=lambda port, baud, out: received.append(baud)):
+                    record.main()
+                self.assertEqual(received, [expected])
+
+    def test_dashboard_cli_baud_matches_firmware_and_allows_override(self):
+        for options, expected in (([], 921600), (["--baud", "230400"], 230400)):
+            with self.subTest(options=options):
+                received = []
+
+                def capture_config(args):
+                    received.append(args.baud)
+                    raise StopLoop
+
+                with patch.object(sys, "argv", ["web_dashboard.py", *options]), \
+                     patch.object(dashboard, "WebState", side_effect=capture_config):
+                    with self.assertRaises(StopLoop):
+                        dashboard.main()
+                self.assertEqual(received, [expected])
+
     def test_transmitter_loss_at_end_fails_recording_quality(self):
         now = [1000.0]
 

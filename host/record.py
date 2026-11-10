@@ -169,7 +169,7 @@ def frozen_config_info() -> dict:
     return snap
 
 
-def check_port_available(port: str, baud: int = 115200) -> tuple[bool, str]:
+def check_port_available(port: str, baud: int = 921600) -> tuple[bool, str]:
     try:
         import serial
         import serial.tools.list_ports
@@ -413,7 +413,7 @@ def interactive_menu(default_port: str, baud: int, out_root: str):
 def main():
     ap = argparse.ArgumentParser(description="Thu dữ liệu thí nghiệm Wi-Fi CSI có hướng dẫn âm thanh.")
     ap.add_argument("--port", default="COM4", help="Cổng COM của mạch thu RX (mặc định: COM4)")
-    ap.add_argument("--baud", type=int, default=115200)
+    ap.add_argument("--baud", type=int, default=921600)
     ap.add_argument("--protocol", default=None, choices=list(EXPERIMENT_SPECS),
                     help="Mã thí nghiệm (e1, e2a, e2b, e3a, e3b, e4, test30s). Bỏ trống để mở menu.")
     ap.add_argument("--empty-minutes", type=float, default=None,
