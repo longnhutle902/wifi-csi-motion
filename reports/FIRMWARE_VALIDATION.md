@@ -36,6 +36,18 @@ sequence is not part of the serial CSI record.
   files and passed for target, 16 MB flash, channel 11, FreeRTOS tick 1000 Hz,
   custom UART0, TX43/RX44, UART/monitor baud 921600, TX rate 50 Hz, and RX CSI
   support enabled.
+- Complete TX and RX builds subsequently completed with `ninja -C build -j 8
+  all`, both exiting with code **0**. Bootloaders, application ELF linking,
+  ESP32-S3 binary generation and partition size checks all passed.
+
+| Project | Completed steps | Application binary size | Free space in 1 MB app partition |
+| --- | ---: | ---: | ---: |
+| RX | 975/975 | `0xb13c0` bytes | `0x4ec40` bytes (31%) |
+| TX | 979/979 | `0xb19a0` bytes | `0x4e660` bytes (31%) |
+
+Local build logs are stored at
+`firmware/csi_rx/build/log/validation_full_build.log` and
+`firmware/csi_tx/build/log/validation_full_build.log` (ignored build artifacts).
 
 TX compilation emits one existing deprecation warning for
 `esp_wifi_config_espnow_rate`. The installed IDF still supports this API for
@@ -58,6 +70,8 @@ result = subprocess.run(entry['command'], cwd=entry['directory'])
 print('COMPILER_EXIT_CODE:', result.returncode)
 sys.exit(result.returncode)
 '@ | python -
+# Complete build, including bootloader, final link and binary size checks:
+ninja -C build -j 8 all
 ```
 
 The compiler initially failed to start inside the Windows sandbox with error
@@ -66,13 +80,10 @@ automatically approved execution outside that sandbox.
 
 ## Limits
 
-A complete cold `idf.py build` was attempted but interrupted before linking.
-It generated more than 1000 build steps per board and was unusually slow on this
-machine. Targeting the main archive or object through Ninja also pulled in SDK
-dependencies, so the completed source check above invoked the generated compiler
-command directly. **A complete firmware link and bootable image are not yet
-verified by this record.**
+The initial cold builds were interrupted while investigating the effective UART
+configuration. After correcting the console choice and regenerating both
+configurations, complete builds were resumed and passed as recorded above.
 
-Compilation and generated configuration checks do not verify over-the-air timing,
+Successful builds and generated configuration checks do not verify over-the-air timing,
 serial throughput on a physical board, queue behavior under load, or the
 experimental detection results. These require a separate hardware run.
