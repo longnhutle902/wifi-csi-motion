@@ -14,7 +14,8 @@ Môi trường đã chạy: `E:\WifiSensingTools\venv\Scripts\python.exe`.
 & 'E:\WifiSensingTools\venv\Scripts\python.exe' host/wifall_check.py --out reports/review_evaluation_20261110/wifall_benchmark
 ```
 
-Bộ kiểm thử toàn dự án: **23 kiểm thử đạt**, 34.385 giây, mã thoát 0.
+Bộ kiểm thử toàn dự án ở lần cuối: **28 kiểm thử đạt**, 33.802 giây, mã thoát 0
+(gồm giao diện tiếng Anh mặc định, launcher và đồng bộ baud).
 Riêng 8 kiểm thử đánh giá/WiFall đã được chạy trước khi sửa: 6 thất bại
 khẳng định và 2 lỗi đọc/biểu đồ; sau khi sửa cả 8 đều đạt.
 
