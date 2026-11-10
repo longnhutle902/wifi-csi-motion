@@ -1,0 +1,14 @@
+menu "CSI TX configuration"
+    config CSI_WIFI_CHANNEL
+        int "Wi-Fi channel (must match RX)"
+        range 1 13
+        default 11
+    config CSI_SEND_RATE_HZ
+        int "Packets per second"
+        range 10 1000
+        default 50
+    config CSI_TX_POWER_QDBM
+        int "Max TX power in 0.25 dBm units (8..84)"
+        range 8 84
+        default 60
+endmenu

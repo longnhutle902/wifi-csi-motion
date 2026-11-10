@@ -1,0 +1,32 @@
+# Python cache & virtual environments
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+venv/
+env/
+
+# ESP-IDF build artifacts
+firmware/*/build/
+firmware/*/managed_components/
+firmware/*/sdkconfig.old
+
+# External large datasets (WiFall raw CSVs)
+datasets/
+
+# Temporary / scratch data
+data/_scratch_test/
+data/_synthetic_demo/
+
+# Local IDE & Agent configs
+.agent/
+.vscode/
+.idea/
+*.log
+.DS_Store
+Thumbs.db
+
+# Fresh audit outputs; historical experiment reports remain tracked
+reports/review_validation/
+reports/review_evaluation_20261110/
+.tools/

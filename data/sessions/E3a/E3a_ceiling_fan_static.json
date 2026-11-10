@@ -1,0 +1,72 @@
+{
+  "position": "E3a",
+  "experiment_id": "E3a",
+  "protocol": "e3a",
+  "title_vi": "TN3a — Nhiễu quạt trần ở trạng thái tĩnh (Đối chứng Tắt vs Bật)",
+  "fan_state": "off_then_max",
+  "geometry": "LOS_2.5_3m",
+  "port": "COM4",
+  "note": "",
+  "frozen_config": {
+    "motion_config": {
+      "win_s": 1.2,
+      "hop_s": 0.1,
+      "k_on": 6.5,
+      "k_off": 3.8,
+      "min_margin": 0.035,
+      "n_on": 3,
+      "n_off": 8,
+      "baseline_median": 0.126,
+      "baseline_std": 0.0095,
+      "calibrated": true,
+      "sensitivity": "normal"
+    },
+    "dsp_fs_hz": 100.0,
+    "dsp_lowpass_cutoff_hz": 6.0,
+    "dsp_hampel_k": 9,
+    "dsp_hampel_sigma": 2.5,
+    "dsp_trimmed_pct": [
+      15,
+      90
+    ],
+    "config_hash": "ef30a9e7f998"
+  },
+  "segments": [
+    [
+      "unlabeled",
+      1793840600.3481793,
+      1793840600.5005732
+    ],
+    [
+      "transition",
+      1793840600.5005732,
+      1793840610.7500067
+    ],
+    [
+      "empty",
+      1793840610.7500067,
+      1793840701.1402142
+    ],
+    [
+      "transition",
+      1793840701.1402142,
+      1793840721.3739388
+    ],
+    [
+      "fan_empty",
+      1793840721.3739388,
+      1793840962.1913586
+    ]
+  ],
+  "start_time": 1793840600.3481793,
+  "qc": {
+    "aborted": false,
+    "duration_s": 361.05,
+    "avg_rate_hz": 50.65,
+    "max_gap_s": 0.116,
+    "avg_rssi_dbm": -47.5,
+    "qc_pass": true
+  },
+  "end_time": 1793840962.1913586,
+  "n_packets": 18287
+}

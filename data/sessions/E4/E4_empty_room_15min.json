@@ -1,0 +1,62 @@
+{
+  "position": "E4",
+  "experiment_id": "E4",
+  "protocol": "e4",
+  "title_vi": "TN4 — Phòng trống liên tục (Kiểm tra báo nhầm dài hạn — 15 phút)",
+  "fan_state": "off",
+  "geometry": "Empty_Room_Long",
+  "port": "COM4",
+  "note": "",
+  "frozen_config": {
+    "motion_config": {
+      "win_s": 1.2,
+      "hop_s": 0.1,
+      "k_on": 6.5,
+      "k_off": 3.8,
+      "min_margin": 0.035,
+      "n_on": 3,
+      "n_off": 8,
+      "baseline_median": 0.126,
+      "baseline_std": 0.0095,
+      "calibrated": true,
+      "sensitivity": "normal"
+    },
+    "dsp_fs_hz": 100.0,
+    "dsp_lowpass_cutoff_hz": 6.0,
+    "dsp_hampel_k": 9,
+    "dsp_hampel_sigma": 2.5,
+    "dsp_trimmed_pct": [
+      15,
+      90
+    ],
+    "config_hash": "ef30a9e7f998"
+  },
+  "segments": [
+    [
+      "unlabeled",
+      1793841433.6143095,
+      1793841433.780622
+    ],
+    [
+      "transition",
+      1793841433.780622,
+      1793841449.0154574
+    ],
+    [
+      "empty",
+      1793841449.0154574,
+      1793842349.8509967
+    ]
+  ],
+  "start_time": 1793841433.6143095,
+  "qc": {
+    "aborted": false,
+    "duration_s": 915.44,
+    "avg_rate_hz": 50.52,
+    "max_gap_s": 0.12,
+    "avg_rssi_dbm": -48.1,
+    "qc_pass": true
+  },
+  "end_time": 1793842349.8509967,
+  "n_packets": 46252
+}

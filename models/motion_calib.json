@@ -1,0 +1,13 @@
+{
+  "win_s": 1.2,
+  "hop_s": 0.1,
+  "k_on": 6.5,
+  "k_off": 3.8,
+  "min_margin": 0.035,
+  "n_on": 3,
+  "n_off": 8,
+  "baseline_median": 0.1405872255563736,
+  "baseline_std": 0.01153439008272611,
+  "calibrated": true,
+  "sensitivity": "normal"
+}

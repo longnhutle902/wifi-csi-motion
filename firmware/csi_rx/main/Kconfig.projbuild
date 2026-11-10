@@ -1,0 +1,6 @@
+menu "CSI RX configuration"
+    config CSI_WIFI_CHANNEL
+        int "Wi-Fi channel (must match TX)"
+        range 1 13
+        default 11
+endmenu
